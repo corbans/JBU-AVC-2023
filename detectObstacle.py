@@ -1,29 +1,28 @@
-#!/usr/bin/env python39
+# import libraries
 import cv2
 import math as mt
-import serial,time
+import serial
 from picamera import PiCamera
 from picamera.array import PiRGBArray
 
+# set up camera tools using libcamera (legacy not permitted in Raspberry Pi)
 camera = PiCamera()
 camera.resolution = (640,480)
 camera.framerate = 35
 rawCapture = PiRGBArray(camera,size=(640,480))
 
-
+# define color ranges
 BLUE_LOWER = (98, 96, 80) # BLUE
 BLUE_UPPER = (131, 255, 93) # BLUE
 RED_LOWER = (135, 164, 17) # RED
 RED_UPPER = (176, 255, 255) # RED
 YELLOW_LOWER = (0, 83, 89) # YELLOW
 YELLOW_UPPER = (86, 220, 255) # YELLOW
-WOOD_LOWER = (12,3,193) #RAMP
-WOOD_UPPER = (93, 93, 255) #RAMP
+
 # colors global value
 BLUE = [BLUE_LOWER,BLUE_UPPER]
 RED = [RED_LOWER,RED_UPPER]
 YELLOW = [YELLOW_LOWER,YELLOW_UPPER]
-RAMP = [WOOD_LOWER,WOOD_UPPER]
 GREEN = (0, 255, 0)
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
